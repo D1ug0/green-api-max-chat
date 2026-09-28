@@ -1,0 +1,67 @@
+.password-field {
+  position: relative;
+}
+.password-field input {
+  padding-right: 45px;
+}
+.password-field .icon-button {
+  position: absolute;
+  right: 5px;
+  top: 6px;
+}
+.api-settings {
+  margin-top: -5px;
+  margin-bottom: 22px;
+}
+.api-settings summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+  font-size: 11px;
+  color: #a09aaa;
+}
+.api-settings summary::-webkit-details-marker {
+  display: none;
+}
+.api-settings[open] summary {
+  margin-bottom: 18px;
+}
+.api-settings[open] summary svg {
+  transform: rotate(180deg);
+}
+.api-settings .field {
+  margin-bottom: 0;
+}
+.privacy-note {
+  font-size: 9px;
+  color: #8f869c;
+  margin: 14px 0 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.form-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #968a9f;
+  font-size: 9px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+.form-divider:before,
+.form-divider:after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: #eeeaf3;
+}
+@media (max-width: 640px) {
+  .privacy-note {
+    font-size: 8px;
+  }
+}
