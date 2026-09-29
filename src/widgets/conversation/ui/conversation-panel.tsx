@@ -139,8 +139,9 @@ export function ConversationPanel({
     <section className="conversation-panel" aria-label={`Переписка: ${chat.title}`}>
       <header className="conversation-heading">
         <button
-          className="icon-button mobile-back"
+          className="icon-button conversation-back"
           aria-label="Назад к чатам"
+          title="Назад к чатам (Esc)"
           onClick={() => activate(null)}
         >
           <ArrowLeft size={21} />

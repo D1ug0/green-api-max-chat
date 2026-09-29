@@ -1,5 +1,5 @@
 import './chat-page.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight, CircleAlert, LogOut, MessageCircle, RefreshCw, X } from 'lucide-react';
 import { ChatSidebar } from '@/widgets/chat-sidebar';
 import { ConversationPanel } from '@/widgets/conversation';
@@ -18,6 +18,23 @@ export function ChatPage({ session }: { session: Session }) {
   const disconnect = useSession((state) => state.disconnect);
   const { status, retry } = useReceiveMessages(session);
   const disabled = status.state !== 'connected';
+  useEffect(() => {
+    if (!activeId) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (
+        event.key !== 'Escape' ||
+        event.isComposing ||
+        event.defaultPrevented ||
+        newChat ||
+        disconnectDialog ||
+        document.querySelector('dialog[open]')
+      )
+        return;
+      conversationStore.getState().activate(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [activeId, newChat, disconnectDialog]);
   const statusText = {
     connected: 'Подключено',
     connecting: 'Подключение…',

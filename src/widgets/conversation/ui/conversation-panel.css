@@ -36,8 +36,8 @@
   color: #8e809b;
   margin-top: 5px;
 }
-.mobile-back {
-  display: none;
+.conversation-back {
+  margin-left: -8px;
 }
 .message-area {
   flex: 1;
@@ -332,9 +332,7 @@
   }
 }
 @media (max-width: 640px) {
-  .mobile-back {
-    display: inline-flex;
-    margin-left: -8px;
+  .conversation-back {
     width: 30px;
   }
   .conversation-heading {
